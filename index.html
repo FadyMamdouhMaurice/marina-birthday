@@ -143,7 +143,7 @@
 <body>
 
   <!-- 🎵 Background Music -->
-  <audio autoplay loop>
+  <audio id="bgMusic" loop>
     <source src="music.mp3" type="audio/mpeg">
   </audio>
 
@@ -180,7 +180,11 @@
   </div>
 
   <script>
+      const music = document.getElementById("bgMusic");
+
     function startConfetti() {
+          playMusic();
+
       for (let i = 0; i < 120; i++) {
         const confetti = document.createElement("div");
         confetti.classList.add("confetti");
@@ -193,6 +197,12 @@
       }
     }
 
+    function playMusic() {
+    if (music.paused) {
+      music.play().catch(() => {});
+    }
+  }
+
     function openAnghami() {
       window.open("https://open.anghami.com/3J2sF39Qq0b", "_blank");
     }
@@ -200,3 +210,4 @@
 
 </body>
 </html>
+
